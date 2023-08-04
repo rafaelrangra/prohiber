@@ -39,7 +39,7 @@ public class TesteHibernate {
     public void testeBuscar2(){
         DaoGeneric<UsuarioPessoa> daoGeneric = new DaoGeneric<UsuarioPessoa>();
 
-        UsuarioPessoa pessoa = daoGeneric.pesquisar(1L, UsuarioPessoa.class);
+        UsuarioPessoa pessoa = daoGeneric.pesquisar(4L, UsuarioPessoa.class);
 
         System.out.println(pessoa);
 
@@ -52,11 +52,20 @@ public class TesteHibernate {
 
         pessoa.setIdade(99);
         pessoa.setNome("Nome atualizado Hibernate");
-        pessoa.setSenha("ashkjashjaskasjasshakashjasksj");
+        pessoa.setSenha("teeeste3");
 
         pessoa = daoGeneric.updateMerge(pessoa);
 
         System.out.println(pessoa);
+
+    }
+
+    @Test
+    public void testeDelete(){
+        DaoGeneric<UsuarioPessoa> daoGeneric = new DaoGeneric<UsuarioPessoa>();
+        UsuarioPessoa pessoa = daoGeneric.pesquisar(5L, UsuarioPessoa.class);
+
+        daoGeneric.deletarPorId(pessoa);
 
     }
 
