@@ -6,6 +6,8 @@
 
     <persistence-unit name="persistenceUnitName" transaction-type="RESOURCE_LOCAL">
 
+        <class>model.UsuarioPessoa</class>
+
         <properties>
             <property name="javax.persistence.jdbc.driver" value="org.postgresql.Driver" /> <!-- DB Driver -->
             <property name="javax.persistence.jdbc.url" value="jdbc:postgresql://localhost/prohiber" /> <!-- BD Mane -->
