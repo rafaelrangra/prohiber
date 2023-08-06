@@ -7,6 +7,7 @@
     <persistence-unit name="persistenceUnitName" transaction-type="RESOURCE_LOCAL">
 
         <class>model.UsuarioPessoa</class>
+        <class>model.TelefoneUser</class>
 
         <properties>
             <property name="javax.persistence.jdbc.driver" value="org.postgresql.Driver" /> <!-- DB Driver -->

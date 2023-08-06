@@ -1,11 +1,13 @@
 package model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.List;
 
-@Entity
+@Entity // vira tabela no BD
+@NamedQueries({
+        @NamedQuery(name = "UsuarioPessoa.todos", query = "select u from UsuarioPessoa u"),
+        @NamedQuery(name = "UsuarioPessoa.buscaPorNome", query = "select u from UsuarioPessoa u where u.nome = :nome")
+})
 public class UsuarioPessoa {
 
     @Id
@@ -18,6 +20,16 @@ public class UsuarioPessoa {
     private String login;
     private String senha;
     private int idade;
+    @OneToMany(mappedBy = "usuarioPessoa", fetch = FetchType.EAGER)
+    private List<TelefoneUser> telefoneUsers;
+
+    public void setTelefoneUsers(List<TelefoneUser> telefoneUsers) {
+        this.telefoneUsers = telefoneUsers;
+    }
+
+    public List<TelefoneUser> getTelefoneUsers() {
+        return telefoneUsers;
+    }
 
     public int getIdade() {
         return idade;
